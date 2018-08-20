@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.FoodMapper">
+	
+	<resultMap id="FoodResultMap" type="com.example.model.Food">
+		<id column="id" property="id" />
+		<result column="fname" property="fname" />
+		<result column="price" property="price" />
+		<result column="imgpath" property="imgpath" />
+	</resultMap>
+
+	<select id="findAll" resultMap="FoodResultMap">
+		select id,fname,price,imgpath 
+			from food
+	</select>
+	
+	<select id="findById" resultMap="FoodResultMap">
+		select id,fname,price,imgpath 
+			from food
+		where id=#{id}
+	</select>
+	
+	<insert id="insertFood">
+		insert into food values(null,#{0},#{1},#{2})
+	</insert>
+	
+	<delete id="deleteFood">
+		delete from food where id=#{fid}
+	</delete>
+	
+	<update id="updateFood">
+		update food set fname=#{0},price=#{1} where id=#{2}
+	</update>
+</mapper>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.Out_food_Mapper">
+	
+	<resultMap id="Out_food_ResultMap" type="com.example.model.Out_food">
+		<id column="id" property="id" />
+		<result column="order_time" property="order_time" />
+		<result column="state" property="state" />
+		<result column="remark" property="remark" />
+		<result column="nums" property="nums" />
+		<result column="total" property="total" />
+		
+	    <association property="user" column="user_id"
+			javaType="com.example.model.User" foreignColumn="id">
+			<id column="id" property="id" />
+			<result column="name" property="name" />
+			<result column="phone" property="phone" />
+		</association>
+		
+		<association property="address" column="asd_id"
+			javaType="com.example.model.Address" foreignColumn="id">
+			<id column="id" property="id" />
+			<result column="user_id" property="user_id" />
+			<result column="street" property="street" />
+			<result column="detail" property="detail" />
+		</association>
+		
+		<collection property="out_term" ofType="com.example.model.Out_term">
+			<id column="id" property="id" />
+			<result column="order_id" property="order_id" />
+			<result column="food_id" property="food_id" />
+			<result column="num" property="num" />
+		</collection>
+		
+		<collection property="food" ofType="com.example.model.Food">
+			<id column="id" property="id" />
+			<result column="fname" property="fname" />
+			<result column="price" property="price" />
+			<result column="imgpath" property="imgpath" />
+		</collection>
+	</resultMap>
+	
+	
+	
+ 	<select id="findAll" resultMap="Out_food_ResultMap">
+		SELECT o.id,u.name ,u.phone,a.detail,o.order_time,o.remark,GROUP_CONCAT(f.fname) fname,GROUP_CONCAT(ot.num) nums,o.total,o.state
+		FROM out_food o 
+			LEFT OUTER JOIN USER u ON o.user_id=u.id
+			LEFT OUTER JOIN out_term ot ON o.id=ot.order_id
+			LEFT OUTER JOIN address a ON a.id=o.ads_id
+			LEFT OUTER JOIN food f ON f.id=ot.food_id
+		GROUP BY o.id
+
+			
+	</select>
+	
+	 <select id="findbyState" resultMap="Out_food_ResultMap" >
+		SELECT o.id,u.name ,u.phone,a.detail,o.order_time,o.remark,GROUP_CONCAT(f.fname) fname,GROUP_CONCAT(ot.num) nums,o.total,o.state
+		FROM out_food o 
+			LEFT OUTER JOIN USER u ON o.user_id=u.id
+			LEFT OUTER JOIN out_term ot ON o.id=ot.order_id
+			LEFT OUTER JOIN address a ON a.id=o.ads_id
+			LEFT OUTER JOIN food f ON f.id=ot.food_id
+		WHERE o.state='未接单'
+		GROUP BY o.id
+	</select>
+	
+	
+	 <select id="findbyId" resultMap="Out_food_ResultMap" >
+		SELECT o.id,u.name ,u.phone,a.detail,o.order_time,o.remark,GROUP_CONCAT(f.fname) fname,GROUP_CONCAT(ot.num) nums,o.total,o.state
+		FROM out_food o 
+			LEFT OUTER JOIN USER u ON o.user_id=u.id
+			LEFT OUTER JOIN out_term ot ON o.id=ot.order_id
+			LEFT OUTER JOIN address a ON a.id=o.ads_id
+			LEFT OUTER JOIN food f ON f.id=ot.food_id
+		WHERE u.id=#{uid}
+		GROUP BY o.id
+	</select>
+	
+ 
+	<update id="insure">
+			update out_food set state='已接单' where id=#{id}
+	</update>
+	
+	<update id="cancelOut">
+			update out_food set state='取消' where id=#{oid}
+	</update>
+	
+	
+	
+	<select id="findNewId" resultType="int">
+	 	SELECT MAX(id) id FROM out_food 
+	</select>
+	
+	<insert id="insertOut">
+		INSERT INTO out_food VALUES(NULL,#{user_id},#{ads_id},#{order_time},#{state},#{remark},#{total})
+	</insert>
+	
+	<insert id="insertTerm">
+		INSERT INTO out_term VALUES(NULL,#{0},#{1},#{2})
+	</insert>
+</mapper>

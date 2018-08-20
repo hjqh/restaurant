@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.Order_seat_Mapper">
+	
+	<resultMap id="Order_seat_ResultMap" type="com.example.model.Order_seat">
+		<id column="oid" property="id" />
+		<result javaType="java.sql.Date" column="orderday" property="orderday"/>
+		<result column="ordertime" property="ordertime"/>
+		<result column="state" property="state"/>
+		<result column="remark" property="remark"/>
+
+		<association property="user" column="user_id"
+			javaType="com.example.model.User" foreignColumn="id">
+			<id column="uid" property="id" />
+			<result column="name" property="name" />
+			<result column="phone" property="phone" />
+		</association>
+
+		<association property="seat" column="seat_id"
+			javaType="com.example.model.Seat" foreignColumn="id">
+			<id column="sid" property="id" />
+			<result column="tabletype" property="tabletype" />
+			<result column="price" property="price" />
+		</association>
+
+		
+	</resultMap>
+	
+	
+	
+ 	<select id="findAll" resultMap="Order_seat_ResultMap">
+		select o.id as oid,u.name,u.phone,s.tabletype,s.id as sid,o.orderday,o.ordertime,o.remark,s.price,o.state
+		from order_seat o 
+			left outer join user u on o.user_id=u.id
+			LEFT OUTER JOIN seat s ON s.id=o.seat_id
+	</select>
+	
+	<select id="findbyId" resultMap="Order_seat_ResultMap">
+		select o.id as oid,u.name,u.phone,s.tabletype,s.id as sid,o.orderday,o.ordertime,o.remark,s.price,o.state
+		from order_seat o 
+			left outer join user u on o.user_id=u.id
+			LEFT OUTER JOIN seat s ON s.id=o.seat_id
+		where u.id=#{uid}
+	</select>
+	
+	<insert id="inputOrder">
+		insert into order_seat values (null,#{4},#{0},#{1},'已预订',#{3},#{2})
+	</insert>
+	
+	<update id="changeOrder">
+		update order_seat set  state="取消" where id = #{oid}
+	</update>
+	
+ 
+</mapper>

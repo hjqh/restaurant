@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mapper.SeatMapper">
+	
+	<resultMap id="SeatResultMap" type="com.example.model.Seat">
+		<id column="sid" property="id" />
+		<result column="tabletype" property="tabletype" />
+		<result column="price" property="price" />
+		<result column="orderPrice" property="orderPrice" />
+		
+		<association property="order_seat" javaType="com.example.model.Order_seat">
+		<id column="oid" property="id" />
+		<result javaType="java.sql.Date" column="orderday" property="orderday"/>
+		<result column="ordertime" property="ordertime"/>
+		<result column="state" property="state"/>
+		<result column="remark" property="remark"/>
+		</association>
+		
+	</resultMap>
+	
+	<select id="findAll" resultMap="SeatResultMap">
+		select * from seat
+	</select>
+
+	<select id="findSeat" resultType="int">
+		SELECT id sid FROM seat s WHERE tabletype=#{2} 
+			AND id NOT IN 
+				(SELECT seat_id as oid FROM order_seat WHERE orderday=#{0} AND ordertime=#{1}) 
+	</select>
+
+</mapper>

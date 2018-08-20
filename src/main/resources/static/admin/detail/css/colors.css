@@ -1,0 +1,280 @@
+#header .navbar-toggle {
+  background: #c2a476;
+  border: 2px solid #c2a476;
+}
+
+#header .navbar-toggle:hover, #header .navbar-toggle:fosuc {
+  background: #c2a476 !important;
+}
+
+/* main menu styles */
+.navbar-default .navbar-nav li a:hover {
+  border-color: #c2a476;
+}
+
+.navbar-default .navbar-nav li a:hover:before, .navbar-default .navbar-nav li a:hover:after {
+  background: #c2a476;
+}
+
+.navbar-default .navbar-nav li.active a, .navbar-default .navbar-nav li.open a {
+  border-color: #c2a476;
+}
+
+.navbar-default .navbar-nav li.active a:before, .navbar-default .navbar-nav li.active a:after, .navbar-default .navbar-nav li.open a:before, .navbar-default .navbar-nav li.open a:after {
+  background: #c2a476;
+}
+
+/* navigation-bar styles */
+.navigation-bar .link:hover {
+  color: #c2a476;
+}
+
+/* about styles */
+.about .box:before {
+  background: rgba(194, 164, 118, 0.3);
+}
+
+/* news styles */
+.news .carousel-caption h2 {
+  color: #c2a476;
+}
+
+.news .carousel-indicators li {
+  border-color: #c2a476;
+}
+
+.news .carousel-indicators li.active, .news .carousel-indicators li:hover {
+  background: #c2a476;
+}
+
+.btn-default {
+  font-weight: 400;
+}
+
+.btn-default:hover {
+  background: #c2a476;
+}
+
+/* Restaurant styles */
+.restaurant .btn-default {
+  color: #c2a476;
+}
+
+.team-carousel .info-box {
+  background: rgba(194, 164, 118, 0.9);
+}
+
+.team-carousel .box:hover .image-frame {
+  border-color: #c2a476;
+}
+
+.team-carousel .carousel-indicators li {
+  border-color: #c2a476;
+}
+
+.team-carousel .carousel-indicators li.active, .team-carousel .carousel-indicators li:hover {
+  background: #c2a476;
+}
+
+/* reservation bar styles */
+.reservation-bar .btn {
+  background: #c2a476;
+}
+
+.view-type li.active a {
+  color: #c2a476;
+}
+
+.view-type a:hover {
+  color: #c2a476;
+}
+
+/* rooms and blog-posts styles */
+.rooms .info-frame h1, .blog-posts .info-frame h1 {
+  color: #c2a476;
+}
+
+.rooms .rent-price, .blog-posts .rent-price {
+  color: #c2a476;
+}
+
+.rooms .detail-list dt, .blog-posts .detail-list dt {
+  color: #c2a476;
+}
+
+.rooms .image-slider .carousel-control:hover, .blog-posts .image-slider .carousel-control:hover {
+  opacity: 1;
+  color: #c2a476;
+}
+
+/* post detail styles */
+.post-detail .social-networks a {
+  border-color: #c2a476;
+  color: #c2a476;
+}
+
+.post-detail .pager li > a:hover {
+  color: #c2a476;
+}
+
+.post-detail .pager li > a:hover .glyphicon {
+  color: #c2a476;
+}
+
+.metas span {
+  font-size: 12px;
+  color: #c2a476;
+}
+
+.metas a:hover {
+  color: #c2a476;
+}
+
+/* paging styles */
+.paging .pagination > li.active a {
+  background: #c2a476;
+  border-color: #c2a476;
+}
+
+.paging .pagination > li > a:hover {
+  background: #c2a476;
+  border-color: #c2a476;
+}
+
+/* comments block styles */
+.comments-block .btn {
+  background: #c2a476;
+}
+
+.comments-block .btn:hover {
+  color: #c2a476;
+}
+
+/* contact styles */
+.contact-form .btn {
+  background: #c2a476;
+}
+
+.contact-form .btn:hover {
+  color: #c2a476 !important;
+}
+
+/* rooms-section styles */
+.info-block .holder .title {
+  color: #c2a476;
+}
+
+.info-block .holder .price span {
+  color: #c2a476;
+}
+
+.info-block .social-networks a:hover {
+  color: #c2a476;
+  border-color: #c2a476;
+}
+
+/* gallery section styles */
+.gallery-section .social-networks a:hover {
+  color: #c2a476;
+  border-color: #c2a476;
+}
+
+/* testimonials styles */
+.testimonials blockquote cite {
+  color: #c2a476;
+}
+
+.testimonials .carousel-indicators li {
+  border-color: #c2a476;
+}
+
+.testimonials .carousel-indicators li.active, .testimonials .carousel-indicators li:hover {
+  background: #c2a476;
+}
+
+/* menu section styles */
+.menu-list h2 {
+  color: #c2a476;
+}
+
+.menu-list .image-frame {
+  border: 1px solid rgba(198, 169, 126, 0.3);
+}
+
+.menu-list a:hover .price {
+  color: #fff;
+  background: #c2a476;
+  border-color: #c2a476;
+}
+
+.menu-carousel .carousel-indicators li {
+  border-color: #c2a476;
+}
+
+.menu-carousel .carousel-indicators li.active, .menu-carousel .carousel-indicators li:hover {
+  background: #c2a476;
+}
+
+/* billing form styles */
+.billing-form .btn {
+  background: #c2a476;
+}
+
+.billing-form .btn:hover {
+  color: #c2a476;
+}
+
+/* sidebar styles */
+.sidebar .widget h1 {
+  background: #c2a476;
+}
+
+.sidebar .list a:hover {
+  color: #c2a476;
+}
+
+.sidebar .list a:before {
+  background: #c2a476;
+}
+
+.sidebar .total-price {
+  background: #c2a476;
+}
+
+.article-box .close {
+  border: 2px solid #c2a476;
+  color: #c2a476;
+}
+
+/* room-details styles */
+.room-details .detail-list li strong {
+  color: #c2a476;
+}
+
+.room-details .rent-price {
+  color: #c2a476;
+}
+
+/* flex slider styles */
+#flex-slider .social-networks a:hover {
+  border-color: #c2a476;
+  color: #c2a476;
+}
+
+form [type="checkbox"]:checked + .fake-input {
+  background: #c2a476;
+  border-color: #c2a476;
+}
+
+/* footer styles */
+#footer {
+  background: #c2a476;
+}
+
+.f-nav a:hover {
+  color: #c2a476;
+}
+
+.go-top:hover {
+  color: #c2a476;
+}

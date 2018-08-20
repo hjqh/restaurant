@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mapper.AddressMapper">
+	
+	<resultMap id="AddressResultMap" type="com.example.model.Address">
+		<id column="id" property="id" />
+		<result column="user_id" property="user_id" />
+		<result column="detail" property="detail" />
+	</resultMap>
+	
+	<select id="selectByUser_id" resultMap="AddressResultMap">
+		select detail,id from address where user_id=#{id}
+	</select>
+	
+	<insert id="addAddress">
+		insert into address values(null,#{0},#{1})
+	</insert>
+
+	<delete id="delAddress">
+		delete from address where id=#{aid}
+	</delete>
+</mapper>
